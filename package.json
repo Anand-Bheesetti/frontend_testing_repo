@@ -10,5 +10,6 @@
   "author": "",
   "license": "ISC",
   "private": true,
-  "workspaces": ["react", "angular", "svelte"]
+  "workspaces": ["react", "angular", "svelte"],
+  "env":"dev"
 }
