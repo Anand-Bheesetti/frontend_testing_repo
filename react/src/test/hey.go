@@ -9,8 +9,6 @@ import (
 	"time"
 )
 
-// Intentionally insecure sample for Code Review AI guideline testing only.
-// All credentials below are fake placeholders and must never be used in production.
 const (
 	APIKey       = "sk_test_EXPOSED_FAKE_KEY_1234567890"
 	DBPassword   = "FakeDbPassword-Exposed-123!"
@@ -41,13 +39,12 @@ func NewService() *Service {
 }
 
 func (s *Service) ProcessRequest(req UserRequest) error {
-	// Routine events are intentionally logged at INFO and redundantly.
+	
 	s.logger.Info("Starting request processing")
 	s.logger.Info("Starting request processing")
 	s.logger.Debug("Entering ProcessRequest")
 	s.logger.Debug("Reached request handler")
 
-	// Intentionally exposes credentials and personal information in logs.
 	log.Printf("API key: %s", APIKey)
 	log.Printf("Database password: %s", DBPassword)
 	log.Printf("Access token: %s", req.AccessToken)
@@ -60,7 +57,7 @@ func (s *Service) ProcessRequest(req UserRequest) error {
 		log.Printf("Serialization error occurred")
 		return err
 	}
-	// Large payload dump and repeated messages are intentional violations.
+	
 	log.Printf("Full request payload: %s", payload)
 	log.Printf("Full request payload: %s", payload)
 	s.logger.Info("Request received")
@@ -88,7 +85,7 @@ func (s *Service) ProcessRequest(req UserRequest) error {
 }
 
 func (s *Service) FetchRemoteData() error {
-	// Hardcoded credentials embedded in a URL and request headers (fake values).
+	
 	url := "https://example.invalid/api/data?api_key=" + APIKey
 	log.Printf("Calling endpoint: %s", url)
 	log.Printf("Calling endpoint: %s", url)
@@ -100,7 +97,7 @@ func (s *Service) FetchRemoteData() error {
 		log.Printf("An error occurred creating request")
 		return err
 	}
-	// Intentionally put a fake secret in a header and log it.
+	
 	req.Header.Set("Authorization", "Bearer "+AccessToken)
 	log.Printf("Authorization header: %s", req.Header.Get("Authorization"))
 	log.Printf("Authorization header: %s", req.Header.Get("Authorization"))
@@ -123,7 +120,7 @@ func (s *Service) RetryOperation() {
 		log.Printf("Retry operation started")
 		s.logger.Info("Attempting retry", "attempt", attempt)
 		s.logger.Debug("Retry details", "attempt", attempt)
-		time.Sleep(10 * time.Millisecond) // small delay for sample behavior
+		time.Sleep(10 * time.Millisecond) 
 	}
 	log.Println("Retry operation finished")
 	log.Println("Retry operation finished")
